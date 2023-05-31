@@ -1,5 +1,7 @@
 package org.learn.scala
 
+import scala.util.control.Breaks.break
+
 object Expressions {
 
   def main (args: Array[String]): Unit = {
@@ -116,6 +118,23 @@ object Expressions {
       if t.size > 0
     }
       { println(t) }
+
+    for { xxx <- 1 to 2
+          yyy <- 1 to 3 }
+    { print(s"($xxx, $yyy) ") }
+    print("\n")
+
+    val powerOf2 = for (i <- 0 to 8; pow = 1 << i) yield pow
+    println(powerOf2)
+
+    var xxxx = 10; while (xxxx > 0) xxxx -= 1
+    println(xxxx)
+
+    var m = 10
+    do {
+      println(s"Here I am, m = $m")
+      m -= 1
+    } while (m > 0)
   }
 
 }
