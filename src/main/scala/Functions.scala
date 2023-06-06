@@ -44,7 +44,7 @@ object Functions {
       else powerTr(x, n - 1, x * t)
     }
 
-    println(powerTr(2, 8))
+    println("TAILREC", powerTr(2, 8))
     println(powerTr(2, 1))
     println(powerTr(2, 0))
 
@@ -73,15 +73,44 @@ object Functions {
 
     val greeting4 = greet3("Ola")
     println(greeting4)
+
+    def sum(items: Int*): Int = {
+      var total = 0
+      for (i <- items) total += i
+      total
+    }
+
+    val summ = sum(10, 20, 30)
+    println(summ)
+
+    def maxx(x: Int)(y: Int) = if (x > y) x else y
+
+    val larger = maxx(20)(39)
+    println(larger)
+
+    def identity[A](a: A): A = a
+
+    val s: String = identity[String]("hello")
+    val d: Double = identity[Double](2.717)
+
+    println(s + " " + d)
+
+    val fileName = "vacation.jpg"
+
+    val isJPEG = fileName.endsWith(".jpg")
+    println(isJPEG)
+
+    println(d.round)
+    println(d.floor)
+    println(d.compare(18.0))
+    println(d.+(2.721))
+
+    println(fileName.substring(1, 5))
+
+
+
+
+
+
   }
-
-  def sum(items: Int*): Int = {
-    var total = 0
-    for (i <- items) total += i
-    total
-  }
-
-  sum(10, 20, 30)
-  sum()
-
 }

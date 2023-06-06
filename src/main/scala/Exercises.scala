@@ -1,7 +1,9 @@
 package org.learn.scala
 
 import scala.Console.println
+import scala.annotation.tailrec
 import scala.math.Ordered.orderingToOrdered
+import scala.math.pow
 import scala.math.Ordering.Implicits.{infixOrderingOps, seqOrdering}
 
 object Exercises {
@@ -60,5 +62,29 @@ object Exercises {
       println("type ", yyy)
     else if (yyy % 5 == 0)
       println("safe ", yyy)
+
+println("***" * 30)
+
+    /*
+    This function calculates the area of the circle
+    by the radius
+     */
+    def circleArea(r: String) = { if (r.isEmpty) null else 3.14 * (r.toDouble * r.toDouble) }
+    println("Area of a circle is: " + circleArea("6"))
+
+    def factorial(n: Int): Unit = {
+      if (n == 5)
+        n
+      else if (n <= 50) factorial(n - 5)
+      else factorial(n)
+      println(n)
+    }
+
+    factorial(50)
+
+    def convertMs(time: Long) = {
+
+    }
+
   }
 }
