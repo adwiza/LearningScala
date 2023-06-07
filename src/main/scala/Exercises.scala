@@ -1,5 +1,9 @@
 package org.learn.scala
 
+import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.format.{DateTimeFormatter, FormatStyle}
+import java.util.Date
 import scala.Console.println
 import scala.annotation.tailrec
 import scala.math.Ordered.orderingToOrdered
@@ -82,9 +86,25 @@ println("***" * 30)
 
     factorial(50)
 
-    def convertMs(time: Long) = {
-
+    def convertCurrentTime(date: Long): String = {
+      val dataString = new Date(date)
+      new SimpleDateFormat("dd.MM.yyyy hh:mm:ss").format(dataString)
     }
+
+    println(convertCurrentTime(System.currentTimeMillis()))
+
+    def XinY(x: Double, y: Double): Unit = {
+      val result = pow(x, y)
+      println(result.toString)
+    }
+
+    XinY(2, 4)
+
+    def coordCalc(x1:Double, y1:Double, x2:Double, y2:Double) = {
+      val result = (x1-x2, y1-y2)
+      result
+    }
+    println(coordCalc(1.2, 4.4, 3.6, 7.8))
 
   }
 }
