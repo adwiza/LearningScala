@@ -106,5 +106,19 @@ println("***" * 30)
     }
     println(coordCalc(1.2, 4.4, 3.6, 7.8))
 
+    def IntConverter(tup: Any) = {
+      tup match {
+        case (a: String, b: Any) => println(a.toInt, b)
+        case (a: Int, b: Any) => println(a, b)
+      }
+    }
+
+    def SixValuesTuple(a:Any, b: Any, c: Any) = {
+      val tup = (a, b, c, a.toString, b.toString, c.toString)
+      println(tup)
+
+    }
+    SixValuesTuple(true, 22.25, "yes")
+
   }
 }
