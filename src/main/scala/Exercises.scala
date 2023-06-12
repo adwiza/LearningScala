@@ -115,10 +115,10 @@ println("***" * 30)
 
     def SixValuesTuple(a:Any, b: Any, c: Any) = {
       val tup = (a, b, c, a.toString, b.toString, c.toString)
-      println(tup)
+      tup
 
     }
-    SixValuesTuple(true, 22.25, "yes")
+    println(SixValuesTuple(true, 22.25, "yes"))
 
   }
 }
