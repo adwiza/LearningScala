@@ -120,5 +120,11 @@ println("***" * 30)
     }
     println(SixValuesTuple(true, 22.25, "yes"))
 
+// Exercises 81
+    def lit(a: Int, b: Int) = {
+      scala.math.max(a, b)
+    }
+    println(lit(30, 49))
+
   }
 }

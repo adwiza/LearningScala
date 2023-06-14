@@ -82,5 +82,54 @@ object HOFs {
     def ff(i: Int) = { println(s"Hello from f($i)"); i }
     println(doubles( ff(8) ))
 
+    val statusHandler: Int => String = {
+      case 200 => "Okay"
+      case 400 => "You Error"
+      case 500 => "Our error"
+    }
+
+    println(statusHandler(200))
+    println(statusHandler(400))
+
+    def safeStringOp3(s: String, f: String => String) = {
+      if (s != null) f(s) else s
+    }
+
+    def safeStringOp4(s: String)(f: String => String) = {
+      if (s != null) f(s) else s
+    }
+
+    val uuid = java.util.UUID.randomUUID().toString
+    val timedUUID = safeStringOp3(uuid, { s =>
+      val now = System.currentTimeMillis()
+      val timed = s.take(24) + now
+      timed.toUpperCase
+      })
+
+//    val uuid = java.util.UUID.randomUUID().toString
+//    val timedUUID = safeStringOp4(uuid) { s =>
+//      val now = System.currentTimeMillis()
+//      val timed = s.take(24) + now
+//      timed.toUpperCase
+//    }
+
+    println(timedUUID)
+
+    def timer[A](f: => A): A = {
+      def now = System.currentTimeMillis
+      val start = now; val a = f; val end = now
+      println(s"Executed in ${end - start} ms")
+      a
+    }
+
+    val veryRandomAmount = timer {
+      util.Random.setSeed(System.currentTimeMillis)
+      for (i <- 1 to 100000) util.Random.nextDouble
+      util.Random.nextDouble
+    }
+    println(veryRandomAmount)
+
+
+
   }
 }
