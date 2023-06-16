@@ -7,7 +7,7 @@ import java.util.Date
 import scala.Console.println
 import scala.annotation.tailrec
 import scala.math.Ordered.orderingToOrdered
-import scala.math.pow
+import scala.math.{exp, pow}
 import scala.math.Ordering.Implicits.{infixOrderingOps, seqOrdering}
 
 object Exercises {
@@ -125,6 +125,33 @@ println("***" * 30)
       scala.math.max(a, b)
     }
     println(lit(30, 49))
+
+    def llit(a: Int, c: Int) = {
+      scala.math.max(a, c)
+    }
+    println(llit(lit(30, 49), 50))
+
+    def smallInt(): Int = {
+      val a = util.Random.nextInt()
+      val b = util.Random.nextInt()
+      println(f"a = ${a} b = ${b}")
+      scala.math.min(a, b)
+    }
+    println("Smallest ", smallInt())
+
+    def fnc(x: Int) = {
+      def insidefnc(z:Int) =
+        x * z
+      insidefnc(5)
+    }
+    println(fnc(5))
+
+    def fzero[A](x: A)(f: A => Double): A = { f(x); x }
+
+    println(fzero(1.45)(exp))
+
+
+
 
   }
 }
