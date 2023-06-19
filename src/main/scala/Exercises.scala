@@ -151,7 +151,5 @@ println("***" * 30)
     println(fzero(1.45)(exp))
 
 
-
-
   }
 }
