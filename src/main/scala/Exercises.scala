@@ -150,6 +150,20 @@ println("***" * 30)
 
     println(fzero(1.45)(exp))
 
+    def p(x: Int): Boolean = {
+      if (x >= 100) true
+      else false
+    }
+
+    def f(x: Int) = x * x
+
+    def conditional(x: Int) = {
+      if (p(x)) f(x)
+      else x
+    }
+    println(conditional(557))
+
+    println("*" * 50)
 
   }
 }
