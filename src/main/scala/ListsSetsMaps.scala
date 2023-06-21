@@ -1,5 +1,8 @@
 package org.learn.scala
 
+import scala.Console.println
+import scala.{::, List}
+
 object ListsSetsMaps {
   def main(args: Array[String]): Unit = {
 
@@ -69,6 +72,48 @@ object ListsSetsMaps {
     var i = primes
 
     while (! i.isEmpty) { print(i.head + ", "); i = i.tail }
+    print("\n")
+
+    def visit(i: List[Int]) { if (i.size > 0) { print(i.head + ", ");
+      visit(i.tail) } }
+    println("visit output:")
+    visit(primes)
+
+    while (i != Nil) { print(i.head + ", "); i = i.tail }
+    print("\n")
+
+    val l: List[Int] = List()
+    println(l == Nil)
+
+    val m: List[String] = List("a")
+    println(m.head)
+    println(m.tail == Nil)
+
+    val numbers2 = 1 :: 2 :: 3 :: Nil
+    println(numbers2)
+
+    val first2 = Nil.::(1)
+    println(first2, first2.tail == Nil)
+
+    val second = 2 :: first2
+    println(second.tail == first2)
+
+    val third = first2 ::: second
+    println(third)
+    println("*" * 50)
+    println(List(1, 2) ++ Set(3, 4, 5))
+    println(List(1, 2) == List(1, 2))
+    println(List(3, 5, 4, 3, 4).distinct)
+    println(List('a', 'b', 'c', 'd').drop(2))
+    println(List(23, 8, 14, 21).filter(_ > 18))
+    println(List(List(1, 2), List(3, 4, 5)).flatten)
+    println(List(1, 2, 3, 4, 5).filter(_ < 3))
+    println(List(1, 2, 3).reverse)
+
+
+
+
+
 
 
 
