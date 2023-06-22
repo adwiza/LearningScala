@@ -108,8 +108,37 @@ object ListsSetsMaps {
     println(List(23, 8, 14, 21).filter(_ > 18))
     println(List(List(1, 2), List(3, 4, 5)).flatten)
     println(List(1, 2, 3, 4, 5).filter(_ < 3))
-    println(List(1, 2, 3).reverse)
+    println(List(2, 3, 5, 7).slice(1, 3))
+    println(List("apple", "one", "four").sortBy(_.length))
+    println(List("apple", "carrot", "banana").sorted)
+    println(List(2, 3, 5, 7, 11, 13).take(3))
+    println(List(1, 2).zip(List("a", "b")))
+    println("*" * 50)
 
+    val f = List(23, 8, 14, 21) filter (_ > 18)
+    val p = List(1, 2, 3, 4, 5) partition (_ < 3)
+    val s = List("apple", "to") sortBy (_.length)
+    println(f)
+    println(p)
+    println(s)
+
+// List appending operations
+    val appended = List(1, 2, 3, 4) :+ 5
+    val suffix = appended takeRight (3)
+    val middle = suffix dropRight 2
+    println(appended)
+    println(suffix)
+    println(middle)
+
+//    Mapping Lists
+
+    println(List(0, 1, 0) collect {
+      case 1 => "OK"
+      case 0 => "Error"
+    })
+
+    println(List("milk,tea") flatMap(_.split(',')))
+    println(List("milk","tea") map(_.toUpperCase))
 
 
 
