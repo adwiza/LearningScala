@@ -1,8 +1,5 @@
 package org.learn.scala
 
-import scala.Console.println
-import scala.{::, List}
-
 object ListsSetsMaps {
   def main(args: Array[String]): Unit = {
 
@@ -139,6 +136,66 @@ object ListsSetsMaps {
 
     println(List("milk,tea") flatMap(_.split(',')))
     println(List("milk","tea") map(_.toUpperCase))
+
+//    Math reduction operations
+    println(List(41, 59, 26).max)
+    println(List(10.9, 32.5, 4.23, 5.67).min)
+    println(List(5, 6, 7).product)
+    println(List(34, 29, 18).contains(29))
+    println(List(0, 4, 3).endsWith(List(4, 3)))
+    println(List(24, 17, 32).exists(_ < 18))
+    println(List(24, 17, 32).forall(_ < 18))
+    println(List(0, 4, 3).startsWith(List(0)))
+
+    println("*" * 50)
+    val validations = List(true, true, false, true, true, true)
+    val valid1 = !(validations contains false)
+    println(valid1)
+    val valid2 = validations forall(_ == true)
+    println(valid2)
+    val valid3 = validations.exists(_ == false) == false
+    println(valid3)
+
+    println("=" * 50)
+    def contains(x: Int, l: List[Int]): Boolean = {
+      var a: Boolean = false
+      for (i <- l) { if (!a) a = (i == x)}
+      a
+    }
+    val included = contains(19, List(46, 19, 92))
+    println(included)
+
+    def boolReduce(l: List[Int], start: Boolean)(f: (Boolean, Int) =>
+      Boolean): Boolean = {
+      var a = start
+      for (i <- l) a = f(a, i)
+      a
+    }
+
+    val  included2 = boolReduce(List(46, 19, 92), false) { (a, i) =>
+      if (a) a else i == 19
+    }
+    println(included2)
+
+    def reduceOp[A, B](l: List[A], start: B)(f: (B, A) => B): B = {
+      var a = start
+      for (i <- l) a = f(a, i)
+      a
+    }
+    val included3 = reduceOp(List(46, 19, 92), false) { (a, i) =>
+      if (a) a else i == 19
+    }
+    println(included3)
+
+    val answer = reduceOp(List(11.3, 23.5, 7.2), 0.0)(_ + _)
+    println(answer)
+
+
+
+
+
+
+
 
 
 
