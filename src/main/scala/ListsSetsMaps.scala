@@ -190,6 +190,39 @@ object ListsSetsMaps {
     val answer = reduceOp(List(11.3, 23.5, 7.2), 0.0)(_ + _)
     println(answer)
 
+    println("@" * 50)
+
+    println(List(4, 5, 6).fold(0)(_ + _))
+    println(List(4, 5, 6).foldLeft(0)(_ + _))
+    println(List(4, 5, 6).foldRight(0)(_ + _))
+    println(List(4, 5, 6).reduce(_ + _))
+    println(List(4, 5, 6).reduceLeft(_ + _))
+    println(List(4, 5, 6).reduceRight(_ + _))
+    println(List(4, 5, 6).scan(0)(_ + _))
+    println(List(4, 5, 6).scanLeft(0)(_ + _))
+    println(List(4, 5, 6).scanRight(0)(_ + _))
+
+    println("&" * 50)
+    val included4 = List(46, 19, 92).foldLeft(false) { (a, i) =>
+      if (a) a else (i == 19)
+    }
+    println(included4)
+
+    val answer2 = List(11.3, 23.5, 7.2).reduceLeft(_ + _)
+    println(answer2)
+
+    println(List(24, 99, 104).mkString(", "))
+    println(List('f', 't').toBuffer)
+    println(Map("a" -> 1, "b" -> 2).toList)
+    println(Set(1 -> true, 3 -> true).toMap)
+    println(List(2, 5, 5, 3, 2).toSet)
+    println(List(2, 5, 5, 3, 2).toString())
+
+
+
+
+
+
 
 
 
