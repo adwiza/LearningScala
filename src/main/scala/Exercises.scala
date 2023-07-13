@@ -164,6 +164,25 @@ println("***" * 30)
     println(conditional(557))
 
     println("*" * 50)
+// 1.
+    def isOdd(number: Int) = number % 2 == 0
+
+    val odds = Seq.range(0, 20).filter(isOdd)
+    println("Filter odds")
+    println(odds)
+
+    val twentyNumbers = List.range(0, 20)
+    val odds2 = twentyNumbers.filter(_ % 2 == 0)
+    println("Filter odds2")
+    println(odds2)
+// 2. Factors function
+    def factor(num: Int): List[Int] = {
+      if (num == 1) List(num)
+      else if (num % 3 == 0) {
+        val firstElem = num }
+      else if (num % 5 == 0)
+        val result2 = ???
+    println("safe ", result)
 
   }
 }
