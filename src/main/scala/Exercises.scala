@@ -176,13 +176,29 @@ println("***" * 30)
     println("Filter odds2")
     println(odds2)
 // 2. Factors function
-    def factor(num: Int): List[Int] = {
-      if (num == 1) List(num)
-      else if (num % 3 == 0) {
-        val firstElem = num }
-      else if (num % 5 == 0)
-        val result2 = ???
-    println("safe ", result)
+    def factor(x: Int): List[Int] = {
+      @tailrec
+      def foo(x: Int, a: Int = 2, list: List[Int] = Nil): List[Int] = a*a > x match {
+        case false if x % a == 0 => foo(x / a, a    , a :: list)
+        case false               => foo(x    , a + 1, list)
+        case true                => x :: list
+      }
+      foo(x)
+    }
+    println("Factor is " + factor(15))
+    val newList = List(9, 11, 13, 15)
+    println {
+      newList.flatMap(factor)
+    }
+// 3.
+    def first[A](items: List[A], count: Int): List[A] = {
+      items.slice(0, count)
+    }
+    println(first(List('a','t','o'), 2))
+// 4.
+
+    println(List("abc", "abcd", "abcdf").fold(0)(_.equals(_)))
+
 
   }
 }
