@@ -196,9 +196,32 @@ println("***" * 30)
     }
     println(first(List('a','t','o'), 2))
 // 4.
+    val myList = List("abc", "abcd", "abcdf")
+    println(myList.maxBy(_.length))
 
-    println(List("abc", "abcd", "abcdf").fold(0)(_.equals(_)))
+// 5.
+    def reverseList[A](list: List[A]): List[A] = {
+      @tailrec
+      def rlRec[A](result: List[A], list: List[A]): List[A] = {
+        list match {
+          case Nil => result
+          case (x :: xs) => {
+            rlRec(x :: result, xs)
+          }
+        }
+      }
 
+      rlRec(Nil, list)
+    }
+    println(reverseList(myList))
+
+//  7.
+    val url = "https://api.coindesk.com/v1/bpi/currentprice.json"
+    val l: List[String] = io.Source.fromURL(url).getLines.toList
+
+    println(l.head)
+
+    println("&" * 50)
 
   }
 }
