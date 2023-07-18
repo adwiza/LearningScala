@@ -34,7 +34,12 @@ object MutableCollections {
     println(ll)
     println(s)
 
+    val  bb = Set.newBuilder[Char]
+    bb += 'h'
+    bb ++= List('e', 'l', 'l', 'o')
+    val helloSet = bb.result
 
+    println(helloSet)
 
 
   }
