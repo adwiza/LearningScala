@@ -223,5 +223,18 @@ println("***" * 30)
 
     println("&" * 50)
 
+// 1.
+
+    def fibTR(num: Int): BigInt = {
+      @tailrec
+      def fibFcn(n: Int, acc1: BigInt, acc2: BigInt): BigInt = n match {
+        case 0 => acc1
+        case 1 => acc2
+        case _ => fibFcn(n - 1, acc2, acc1 + acc2)
+      }
+
+      fibFcn(num, 0, 1)
+    }
+    println(fibTR(20))
   }
 }
