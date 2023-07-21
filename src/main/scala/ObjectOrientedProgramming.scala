@@ -1,5 +1,7 @@
 package org.learn.scala
 
+import java.util.Date
+
 object ObjectOrientedProgramming {
   def main(args: Array[String]): Unit = {
 
@@ -104,6 +106,54 @@ object ObjectOrientedProgramming {
     println(acr)
     println(ll)
     println(p)
+
+    class Singular[A](element: A) extends Iterable[A] {
+      override def foreach[B](f: A => B): Unit = f(element)
+
+      def iterator: Iterator[A] = ???
+    }
+    val pp = new Singular("Planes")
+    pp foreach println
+
+    abstract class Caar {
+      val year: Int
+      val automatic: Boolean = true
+      def color: String
+    }
+//    new Caar() # class Caar is abstract; cannot be instantiated
+    class RedMini(val year: Int) extends Caar {
+      def color = "Red"
+    }
+    val m: Caar = new RedMini(2005)
+    class  Mini(val year: Int, val color: String) extends Caar
+    val redmMini: Caar = new Mini(2005, "Red")
+    println(s"Got a ${redmMini.color} Mini")
+
+    abstract class Listener { def trigger }
+    val myListener = new Listener {
+      def trigger { println(s"Trigger at ${new Date()}") }
+    }
+    myListener.trigger
+
+    class Listening {
+      var listener: Listener = null
+      def register(l: Listener) { listener = l}
+      def sendNotification() { listener.trigger }
+    }
+    val notification = new Listening()
+    notification.register(new Listener {
+      def trigger { println(s"Trigger at ${new Date()}") }
+    })
+    notification.sendNotification()
+
+    class Printer(msg: String) {
+      def print(s: String): Unit = println(s"$msg: $s")
+      def print(l: Seq[String]): Unit = print(l.mkString(", "))
+    }
+    new Printer("Today's Report").print("Foggy" :: "Rainy" :: "Hot" :: Nil).toString
+
+
+
 
 
 
